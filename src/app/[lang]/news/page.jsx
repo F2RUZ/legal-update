@@ -3,10 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { Container } from "@/shared/ui/Container/Container";
 import { motion } from "framer-motion";
-import { ContactSupport } from "@/widgets/ContactSupport";
-import { ContactMap } from "@/widgets/ContactMap";
+import { News } from "@/widgets/News";
 
-const ContactPage = () => {
+const CasePage = () => {
   return (
     <main className="bg-[#0a0a0a]">
       {/* 1. Header Section */}
@@ -34,7 +33,7 @@ const ContactPage = () => {
 
             <div className="flex flex-col">
               <h1 className="text-white text-3xl md:text-4xl font-serif italic mb-6 tracking-wide">
-                Page - Contact Us
+                Page - News
               </h1>
               <div className="w-28 h-[1.5px] bg-[#C59D5F]" />
             </div>
@@ -42,11 +41,10 @@ const ContactPage = () => {
         </Container>
       </section>
 
-      <ContactSupport />
-      <ContactMap/>
+      <News/>
 
     </main>
   );
 };
 
-export default ContactPage;
+export default CasePage;

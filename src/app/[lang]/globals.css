@@ -12,7 +12,7 @@
     content: "";
     position: fixed;
     top: 0;
-    left: 100px; /* Chapdan masofa */
+    left: 4.9%; /* Chapdan masofa */
     width: 1.5px;  /* Chiziq qalinligi */
     height: 100vh; /* Butun ekran bo'yi */
     background-color: #c59d5f; /* Jigarrang/Tilla rang */
@@ -22,8 +22,7 @@
   }
 }
 
-/* Mobil qurilmalarda bu chiziqni yashirgan ma'qul, 
-   chunki 200px ekran yarmini egallab qo'yadi */
+
 @media (max-width: 768px) {
   body::before {
     display: none;
