@@ -6,14 +6,14 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="relative w-full bg-white  lg:py-32 flex flex-col justify-center min-h-screen">
+    <section className="relative w-full bg-white  lg:py-32 flex flex-col justify-center ">
       {/* 1. Background Image - Section balandligiga nisbatan ideal markazlash */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/Section.png"
           alt="Building Background"
           fill
-          className="object-cover object-center opacity-[0.15]" // Opacity qaytarildi, bo'lmasa matn o'qilmaydi
+          className="object-cover object-center " // Opacity qaytarildi, bo'lmasa matn o'qilmaydi
           priority
         />
       </div>

@@ -17,8 +17,8 @@ export const CaseStudies = () => {
   return (
     <section className="py-24 bg-white">
       <Container>
-        {/* Header qismi */}
-        <div className="mb-16">
+        {/* Header */}
+        <div className="mb-20">
           <span className="text-[#C59D5F] text-[10px] font-bold uppercase tracking-[0.4em] block mb-4">
             Case Studies
           </span>
@@ -27,39 +27,50 @@ export const CaseStudies = () => {
           </h2>
         </div>
 
-        {/* Grid qismi */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {cases.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden"
+              className="flex flex-col group"
             >
-              {/* Rasm konteyneri */}
-              <div className="relative h-[300px] w-full overflow-hidden">
+              {/* Rasm qismi */}
+              <div className="relative w-full h-[380px] overflow-hidden">
                 <Image
                   src={item.img}
                   alt={item.title}
                   fill
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
-              {/* Ma'lumot qismi */}
-              <div className="relative -mt-10 mx-6 bg-white p-6 shadow-xl z-10 text-center">
-                <h3 className="text-lg font-bold text-[#1a1612] uppercase tracking-wider mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-4">
-                  Lorem ipsum dolor
-                </p>
-                <button className="w-full bg-[#C59D5F] text-black py-3 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#1a1612] hover:text-white transition-all duration-300">
-                  Read More
-                </button>
+              {/* Ma'lumot qismi (Oq box - o'ngga surilgan) */}
+              <div className="relative z-10 w-[70%] ml-auto -mt-24 bg-white px-0.5   p-0.5 shadow-sm">
+                <div className="text-right">
+                  <h3 className="text-xl font-serif font-bold text-[#1a1612] uppercase tracking-tight mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm italic mb-6">
+                    Lorem ipsum dolor
+                  </p>
+                </div>
+
+                {/* Tugma: Hover/Active qora rangda */}
               </div>
+              <button
+                className="
+                  w-full py-4 bg-[#FCD17B] text-black font-bold uppercase tracking-[0.2em] text-[12px]
+                  transition-all duration-300
+                  hover:bg-black hover:text-[#FCD17B] 
+                  active:bg-[#1a1a1a] active:scale-[0.98]
+                "
+              >
+                Read More
+              </button>
             </motion.div>
           ))}
         </div>

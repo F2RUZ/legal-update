@@ -30,9 +30,9 @@ const Hero = () => {
               <span className="text-[#C59D5F] text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase">
                 We Help For
               </span>
-              <span className="text-white text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase min-w-[150px] italic">
+              <span className="text-[#C59D5F]  text-[12px] md:text-[14px] font-bold tracking-[0.4em] uppercase min-w-[150px] italic font-mono">
                 <Typewriter
-                  words={["CONSULTING", "ADVICE", "LEGAL ADVICE"]}
+                  words={["consulting", "advice", "legal advice"]}
                   loop={0} // 0 bo'lsa cheksiz aylanadi
                   cursor
                   cursorStyle="_"
@@ -46,7 +46,7 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl lg:text-[85px] font-serif leading-[1.1] mb-8 uppercase tracking-tight"
+              className="text-3xl md:text-4xl lg:text-[65px] font-serif leading-[1.1] mb-8 uppercase tracking-tight"
             >
               Law Expertise
               <span className="italic font-light block lg:inline ml-0 lg:ml-4">

@@ -46,8 +46,8 @@ const AboutPage = () => {
 
       {/* Widgets */}
       <About />
-      <ExperienceSlider />
       <Benefits />
+      <ExperienceSlider />
       <Timeline />
       <Statistics />
       <Appointment />
