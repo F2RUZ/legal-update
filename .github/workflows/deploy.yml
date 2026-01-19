@@ -10,29 +10,26 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, X64, prod]
+    runs-on: vps03603 
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        # Kodni runner yonidagi 'trafic-legal-app' papkasiga yuklaydi
         with:
-          # Bu loyihani agent ichidagi 'trafic-legal' papkasiga yuklaydi
-          path: trafic-legal
+          path: trafic-legal-app
 
-      - name: Create Symlink and Deploy
+      - name: Deploy Next to Runner
         run: |
-          # 1. Asosiy joyda (IT-Euphoria-org ichida) simvolik havola yaratamiz
-          # Bu loyihani tashqariga 'chiqarib' beradi
-          sudo ln -sfn $(pwd)/trafic-legal /home/IT-Euphoria-org/trafic-legal
+          # 1. Runner joylashgan asosiy papkaga o'tamiz
+          cd /home/user/actions-runner/_work/trafic-legal-update.uz/trafic-legal-update.uz/trafic-legal-app
 
-          # 2. Loyiha papkasiga kiramiz
-          cd trafic-legal
-
-          # 3. Docker-ni ko'taramiz (Endi tarmoq bor, xato bermaydi)
+          # 2. Docker-ni ko'taramiz
+          # --force-recreate hamma narsani yangidan toza ko'taradi
           docker compose up -d --build --force-recreate
 
-          # 4. Tozalash
+          # 3. Tozalash
           docker image prune -f
 
-      - name: Verify Directory
-        run: ls -la /home/IT-Euphoria-org/trafic-legal
+      - name: Show Location
+        run: pwd && ls -la
