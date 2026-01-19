@@ -81,4 +81,3 @@ Ushbu loyiha MIT litsenziyasi ostida yaratilgan.
 Traffic Legal WB — Xavfsiz harakat, huquqiy kafolat! ⚖️
 
 
-Ushbu README loyihangizni professional ko'rsatadi va hamkorlar/klientlar uchun tushunarli qo'llanma bo'lib xizmat qiladi. Yana biror texnik bo'lim qo'shishni istaysizmi?# legal-update
