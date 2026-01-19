@@ -11,7 +11,7 @@ concurrency:
 jobs:
   deploy:
     # GitHub Runner-dagi mavjud taglar bilan bir xil qildik
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: [self-hosted, traffic-dedicated]
 
     steps:
       - name: Checkout Code
