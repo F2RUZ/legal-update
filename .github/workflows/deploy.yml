@@ -10,40 +10,29 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted]
+    runs-on: [self-hosted, Linux, X64, prod]
 
     steps:
-      # 1. Eski papkani tozalash (Agar mavjud bo'lsa)
-      - name: Clean up old project directory
-        run: |
-          # Agent turgan joyda 'trafic-legal' bo'lsa, uni butunlay o'chirib tashlaymiz
-          # Bu loyihani noldan (Fresh) yuklanishini ta'minlaydi
-          if [ -d "trafic-legal" ]; then
-            echo "Eski papka topildi, o'chirilmoqda..."
-            rm -rf trafic-legal
-          else
-            echo "Eski papka topilmadi, yangi yaratiladi."
-          fi
-
-      # 2. Kodni noldan yuklab olish
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
+          # Bu loyihani agent ichidagi 'trafic-legal' papkasiga yuklaydi
           path: trafic-legal
 
-      # 3. Docker Deploy
-      - name: Deploy with Docker Compose
+      - name: Create Symlink and Deploy
         run: |
+          # 1. Asosiy joyda (IT-Euphoria-org ichida) simvolik havola yaratamiz
+          # Bu loyihani tashqariga 'chiqarib' beradi
+          sudo ln -sfn $(pwd)/trafic-legal /home/IT-Euphoria-org/trafic-legal
+
+          # 2. Loyiha papkasiga kiramiz
           cd trafic-legal
 
-          # Docker-ni toza holda ko'tarish
-          # --force-recreate bayrog'i konteynerni yangidan yaratishga majbur qiladi
+          # 3. Docker-ni ko'taramiz (Endi tarmoq bor, xato bermaydi)
           docker compose up -d --build --force-recreate
 
-          # Keraksiz va 'osilib' qolgan obrazlarni tozalash
+          # 4. Tozalash
           docker image prune -f
 
-      - name: Status Check
-        run: |
-          cd trafic-legal
-          docker compose ps
+      - name: Verify Directory
+        run: ls -la /home/IT-Euphoria-org/trafic-legal

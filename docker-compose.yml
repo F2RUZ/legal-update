@@ -1,13 +1,10 @@
-version: "3.8"
-
 services:
-  next-app:
-    build: 
+  trafic-legal:
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: trafic-legal-app
     restart: always
-    # Portni 4000 qilib belgiladik, Nginx orqali shu portga murojaat qilasiz
     ports:
       - "4000:3000"
     environment:
@@ -16,6 +13,5 @@ services:
       - euphoria_network
 
 networks:
-  # Bu tarmoq loyihalarni bir-biri bilan va Nginx bilan xavfsiz bog'laydi
   euphoria_network:
     external: true
