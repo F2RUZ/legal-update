@@ -52,7 +52,7 @@ export default async function Home({ params }) {
       <Services />
       <Testimonial />
       <Team/>
-      <ExperienceSlider />
+      {/* <ExperienceSlider /> */}
       <News/>
     </>
   );
